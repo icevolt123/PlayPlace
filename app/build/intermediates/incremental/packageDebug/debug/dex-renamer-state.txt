@@ -1,0 +1,4 @@
+#Wed Jan 10 13:22:34 KST 2018
+base.0=D\:\\Android\\AndroidStudioProjects\\SensorPlay\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\18
+path.0=classes.dex
+renamed.0=classes.dex

@@ -20,7 +20,7 @@ public class SensorService extends Service implements SensorEventListener{
 	private MediaPlayer mMediaPlayer;
 	boolean isPlaying = false;
 	private float mThreshold = 2.5f;
-	
+
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
@@ -29,7 +29,7 @@ public class SensorService extends Service implements SensorEventListener{
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		
+
 		 mSensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
 		 mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 		 mMediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.mario);
@@ -37,35 +37,35 @@ public class SensorService extends Service implements SensorEventListener{
 
 				@Override
 				public void onCompletion(MediaPlayer mp) {
-					
+
 					isPlaying = false;
-					
+
 				}
 
 			});
-		
+
 	}
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
-		
-		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_UI);
-		
+
+		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
 		return Service.START_NOT_STICKY;
-		
+
 	}
 
 
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		
+
 		 mSensorManager.unregisterListener(this);
 	}
 
 	@Override
 	public void onSensorChanged(SensorEvent event) {
-		
+
 		double rateOfRotation = Math.sqrt(Math.pow(event.values[0], 2) + Math.pow(event.values[1], 2) + Math.pow(event.values[2], 2));
 		if(rateOfRotation>mThreshold)
 		{
@@ -75,12 +75,12 @@ public class SensorService extends Service implements SensorEventListener{
 				isPlaying = true;
 			}
 		}
-		
+
 	}
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		
+
 	}
 
 }

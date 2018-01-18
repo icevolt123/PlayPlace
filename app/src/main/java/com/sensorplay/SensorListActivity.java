@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-
 public class SensorListActivity extends Activity implements OnItemClickListener{
 
 	private SensorManager mSensorManager;

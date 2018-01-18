@@ -1,12 +1,12 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-53:12
+ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
+INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:2:1-64:12
 	package
 		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:3:5-29
 		INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml
@@ -36,7 +36,7 @@ INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidMa
 		INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml
 		INJECTED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml
 application
-ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:11:5-51:19
+ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:11:5-62:19
 	android:label
 		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:14:9-41
 	android:icon
@@ -87,7 +87,17 @@ ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManif
 		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:41:12-65
 	android:name
 		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:38:20-70
-service#com.sensorplay.SensorService
-ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:49:11-65
+activity#com.sensorplay.SensorRecordActivity
+ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:49:9-58:20
+	android:screenOrientation
+		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:50:13-49
+	android:parentActivityName
+		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:51:13-75
+	android:theme
+		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:52:13-66
 	android:name
-		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:49:20-63
+		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:49:19-69
+service#com.sensorplay.SensorService
+ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:60:11-65
+	android:name
+		ADDED from D:\Android\AndroidStudioProjects\SensorPlay\app\src\main\AndroidManifest.xml:60:20-63

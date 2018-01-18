@@ -16,6 +16,10 @@
         "source": "D:\\Android\\AndroidStudioProjects\\SensorPlay\\app\\src\\main\\res\\layout\\capability_layout.xml"
     },
     {
+        "merged": "D:\\Android\\AndroidStudioProjects\\SensorPlay\\app\\build\\intermediates\\res\\merged\\debug\\layout_recorder_layout.xml.flat",
+        "source": "D:\\Android\\AndroidStudioProjects\\SensorPlay\\app\\src\\main\\res\\layout\\recorder_layout.xml"
+    },
+    {
         "merged": "D:\\Android\\AndroidStudioProjects\\SensorPlay\\app\\build\\intermediates\\res\\merged\\debug\\raw_mario.mp3.flat",
         "source": "D:\\Android\\AndroidStudioProjects\\SensorPlay\\app\\src\\main\\res\\raw\\mario.mp3"
     },

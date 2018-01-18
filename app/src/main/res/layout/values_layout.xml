@@ -133,4 +133,34 @@
         android:textSize="16sp"
         />
 
+   <Button
+       android:id="@+id/measurestart"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignEnd="@+id/sensorname"
+       android:layout_alignParentBottom="true"
+       android:layout_alignRight="@+id/sensorname"
+       android:layout_marginBottom="50dp"
+       android:text="START" />
+
+   <Button
+       android:id="@+id/measurestop"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBaseline="@+id/measurestart"
+       android:layout_alignBottom="@+id/measurestart"
+       android:layout_centerHorizontal="true"
+       android:text="STOP" />
+
+   <Button
+       android:id="@+id/measurerecords"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignBaseline="@+id/measurestop"
+       android:layout_alignBottom="@+id/measurestop"
+       android:layout_marginLeft="30dp"
+       android:layout_toEndOf="@+id/measurestop"
+       android:layout_toRightOf="@+id/measurestop"
+       android:text="RECORDS" />
+
 </RelativeLayout>

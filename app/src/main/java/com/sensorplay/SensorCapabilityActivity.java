@@ -22,6 +22,8 @@ public class SensorCapabilityActivity extends Activity {
 	private TextView mSensorResolutionTextView;
 	private TextView mSensorVendorTextView;
 	private TextView mSensorVersionTextView;
+	private TextView mSensorHandleTextView;
+	private TextView mSensorTypeTextView;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,9 @@ public class SensorCapabilityActivity extends Activity {
 		 mSensorResolutionTextView = (TextView)findViewById(R.id.sensor_resolution);
 		 mSensorVendorTextView = (TextView)findViewById(R.id.sensor_vendor);
 		 mSensorVersionTextView = (TextView)findViewById(R.id.sensor_version);
-		 
+		 mSensorHandleTextView = (TextView)findViewById(R.id.sensor_handle);
+		 mSensorTypeTextView = (TextView)findViewById(R.id.sensor_type);
+
 		 
 		 mSensorNameTextView.setText(mSensor.getName());
 		 mSensorMaximumRangeTextView.setText(String.valueOf(mSensor.getMaximumRange()));
@@ -50,7 +54,9 @@ public class SensorCapabilityActivity extends Activity {
 		 mSensorResolutionTextView.setText(String.valueOf(mSensor.getResolution()));
 		 mSensorVendorTextView.setText(String.valueOf(mSensor.getVendor()));
 		 mSensorVersionTextView.setText(String.valueOf(mSensor.getVersion()));
-		 
+//		 mSensorHandleTextView.setText(String.valueOf(mSensor.getHandle()));
+		 mSensorTypeTextView.setText(String.valueOf(mSensor.getType()));
+
 	}
 	
 	public void onClickSensorValues(View v)

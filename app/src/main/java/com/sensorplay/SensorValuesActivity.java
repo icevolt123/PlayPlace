@@ -8,12 +8,12 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.v4.app.NavUtils;
-import android.util.EventLog;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.io.Serializable;
 
 public class SensorValuesActivity extends Activity implements SensorEventListener{
 
@@ -29,31 +29,29 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 	private TextView mEventValue_6;
 	private TextView mTime;
 	private TextView mAccuracy;
+	Handler handler = new Handler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		 super.onCreate(savedInstanceState);
-		 setContentView(R.layout.values_layout);
-		 
-		 Intent intent = getIntent();
-		 mSensorType = intent.getIntExtra(getResources().getResourceName(R.string.sensor_type), 0);
-		 mSensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
-		 mSensor = mSensorManager.getDefaultSensor(mSensorType);
-		 mEventValue_0 = (TextView)findViewById(R.id.event0);
-		 mEventValue_1 = (TextView)findViewById(R.id.event1);
-		 mEventValue_2 = (TextView)findViewById(R.id.event2);
-		 mEventValue_3 = (TextView)findViewById(R.id.event3);
-		 mEventValue_4 = (TextView)findViewById(R.id.event4);
-		 mEventValue_5 = (TextView)findViewById(R.id.event5);
-		 mEventValue_6 = (TextView)findViewById(R.id.event6);
-		 mTime = (TextView)findViewById(R.id.time);
-		 mAccuracy = (TextView)findViewById(R.id.accuracy);
-//		 btnStart = (Button)findViewById(R.id.measurestart);
-//		 btnStop = (Button)findViewById(R.id.measurestop);
-//		 btnRec = (Button)findViewById(R.id.measurerecords);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.values_layout);
+
+		Intent intent = getIntent();
+		mSensorType = intent.getIntExtra(getResources().getResourceName(R.string.sensor_type), 0);
+		mSensorManager = (SensorManager) this.getSystemService(Context.SENSOR_SERVICE);
+		mSensor = mSensorManager.getDefaultSensor(mSensorType);
+		mEventValue_0 = (TextView)findViewById(R.id.event0);
+		mEventValue_1 = (TextView)findViewById(R.id.event1);
+		mEventValue_2 = (TextView)findViewById(R.id.event2);
+		mEventValue_3 = (TextView)findViewById(R.id.event3);
+		mEventValue_4 = (TextView)findViewById(R.id.event4);
+		mEventValue_5 = (TextView)findViewById(R.id.event5);
+		mEventValue_6 = (TextView)findViewById(R.id.event6);
+		mTime = (TextView)findViewById(R.id.time);
+		mAccuracy = (TextView)findViewById(R.id.accuracy);
 		findViewById(R.id.measurestart).setOnClickListener(btnStart);
 		findViewById(R.id.measurestop).setOnClickListener(btnStop);
-		findViewById(R.id.measurerecords).setOnClickListener(btnRec);
+//		findViewById(R.id.measurerecords).setOnClickListener(btnRec);
 	}
 
 	@Override
@@ -72,15 +70,9 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 	protected void onDestroy() {
 		super.onDestroy();
 	}
-	
-	@Override
-	public void onBackPressed() {
-		finish();
-		NavUtils.navigateUpFromSameTask(this);
-	}
 
 	@Override
-	public void onSensorChanged(final SensorEvent event) {
+		public void onSensorChanged(final SensorEvent event) {
 
 		mAccuracy.setText(String.valueOf(event.accuracy));
 		mTime.setText("Time: " + String.valueOf(event.timestamp));
@@ -104,19 +96,18 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 			mEventValue_6.setText(String.valueOf(event.values[6]));
 		}
 
-		Intent intent = new Intent(SensorValuesActivity.this, SensorRecordActivity.class);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-		intent.putExtra("x", event.values[0]);
-		intent.putExtra("y", event.values[1]);
-		intent.putExtra("z", event.values[2]);
-		intent.putExtra("time", event.timestamp);
-		startActivity(intent);
-
+		Button btnRec = (Button)findViewById(R.id.measurerecords);
+		btnRec.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent(SensorValuesActivity.this, SensorRecDisplay.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		
 	}
 
 	Button.OnClickListener btnStart = new View.OnClickListener() {
@@ -130,14 +121,6 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 		@Override
 		public void onClick(View view) {
 			onPause();
-		}
-	};
-
-	Button.OnClickListener btnRec = new View.OnClickListener() {
-		@Override
-		public void onClick(View view) {
-			Intent intent = new Intent(SensorValuesActivity.this, SensorRecordActivity.class);
-			startActivity(intent);
 		}
 	};
 }

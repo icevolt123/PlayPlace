@@ -46,7 +46,7 @@
          
          </activity>
 
-        <activity android:name="com.sensorplay.SensorRecordActivity"
+        <activity android:name="com.sensorplay.SensorRecDisplay"
             android:screenOrientation="portrait"
             android:parentActivityName="com.sensorplay.SensorListActivity"
             android:theme="@android:style/Theme.Black.NoTitleBar">
@@ -56,9 +56,9 @@
                 android:value="com.sensorplay.SensorListActivity" />
 
         </activity>
-        
+
           <service android:name="com.sensorplay.SensorService"/>
-          
+
     </application>
 
 </manifest>

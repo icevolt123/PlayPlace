@@ -23,7 +23,7 @@ public class SensorListActivity extends Activity implements OnItemClickListener{
 	private ListView mSensorListView;
 	private ListAdapter mListAdapter;
 	private List<Sensor> mSensorsList;
-	
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,11 +56,9 @@ public class SensorListActivity extends Activity implements OnItemClickListener{
 	
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		
 		Intent intent = new Intent(getApplicationContext(), SensorCapabilityActivity.class);
 		intent.putExtra(getResources().getResourceName(R.string.sensor_type), mSensorsList.get(position).getType());
 		startActivity(intent);
-
 	}
     
 	

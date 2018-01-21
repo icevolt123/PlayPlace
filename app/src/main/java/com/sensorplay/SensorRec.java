@@ -34,7 +34,7 @@ public class SensorRec extends Observable implements SensorEventListener {
 
     public SensorRec(SensorManager mSensorManager) {
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ALL);
-        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     public SensorRec(long mTime, long mEventValue_0, float mEventValue_1, float mEventValue_2) {

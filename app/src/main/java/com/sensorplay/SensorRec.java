@@ -76,4 +76,6 @@ public class SensorRec extends Observable implements SensorEventListener {
     @Override
     public void onAccuracyChanged(Sensor sensor, int Accuracy) {
     }
+
+
 }

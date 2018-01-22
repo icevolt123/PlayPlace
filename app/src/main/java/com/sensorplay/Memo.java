@@ -73,3 +73,11 @@ public interface Memo {}
     //리맵핑된 새로운 방향값을 결정
     SensorManager.getOrientation(outR, values);*/
 
+
+/*  //portrait mode, landscape mode
+    if |FAz| > 0.5[G] && |FAy| > 0.5[G] && |FAx| < 0.4 < [G], Buttom mode
+    else if |FAz| > 0.5[G] && |FAy| < -0.5[G] && |FAx| < 0.4 < [G], Top mode
+    else if |FAz| > 0.5[G] && |FAx| > 0.5[G] && |FAy| < 0.4 < [G], Left mode
+    else if |FAz| > 0.5[G] && |FAx| < - 0.5[G] && |FAy| < 0.4 < [G], Right mode
+    수직축: y, x축: x, y축: z*/
+

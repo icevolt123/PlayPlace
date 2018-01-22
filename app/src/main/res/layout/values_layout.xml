@@ -133,34 +133,35 @@
         android:textSize="16sp"
         />
 
-   <Button
-       android:id="@+id/measurestart"
+   <ToggleButton
+       android:id="@+id/measuretoggle"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_alignEnd="@+id/sensorname"
        android:layout_alignParentBottom="true"
-       android:layout_alignRight="@+id/sensorname"
-       android:layout_marginBottom="50dp"
-       android:text="START" />
-
-   <Button
-       android:id="@+id/measurestop"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignBaseline="@+id/measurestart"
-       android:layout_alignBottom="@+id/measurestart"
-       android:layout_centerHorizontal="true"
-       android:text="STOP" />
+       android:layout_marginBottom="45dp"
+       android:layout_marginLeft="40dp"
+       android:text="START"
+       android:textOff="STOP"
+       android:textOn="START" />
 
    <Button
        android:id="@+id/measurerecords"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_alignBaseline="@+id/measurestop"
-       android:layout_alignBottom="@+id/measurestop"
-       android:layout_marginLeft="30dp"
-       android:layout_toEndOf="@+id/measurestop"
-       android:layout_toRightOf="@+id/measurestop"
+       android:layout_alignTop="@+id/measuretoggle"
+       android:layout_alignBottom="@+id/measuretoggle"
+       android:layout_marginLeft="20dp"
+       android:layout_toRightOf="@+id/measuretoggle"
        android:text="RECORDS" />
+
+   <Button
+       android:id="@+id/saverecords"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignTop="@+id/measurerecords"
+       android:layout_alignBottom="@+id/measurerecords"
+       android:layout_marginLeft="20dp"
+       android:layout_toRightOf="@+id/measurerecords"
+       android:text="SAVE VALUES" />
 
 </RelativeLayout>

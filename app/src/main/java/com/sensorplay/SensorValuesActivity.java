@@ -11,9 +11,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
-import java.io.Serializable;
 
 public class SensorValuesActivity extends Activity implements SensorEventListener{
 
@@ -29,7 +30,7 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 	private TextView mEventValue_6;
 	private TextView mTime;
 	private TextView mAccuracy;
-	Handler handler = new Handler();
+	ToggleButton btnToggle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,15 +50,27 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 		mEventValue_6 = (TextView)findViewById(R.id.event6);
 		mTime = (TextView)findViewById(R.id.time);
 		mAccuracy = (TextView)findViewById(R.id.accuracy);
-		findViewById(R.id.measurestart).setOnClickListener(btnStart);
-		findViewById(R.id.measurestop).setOnClickListener(btnStop);
-//		findViewById(R.id.measurerecords).setOnClickListener(btnRec);
+
+        findViewById(R.id.measurerecords).setOnClickListener(btnRec);
+        btnToggle = (ToggleButton) this.findViewById(R.id.measuretoggle);
+        btnToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked == true) {
+                    onPause();
+                } else {
+                    onResume();
+                }
+            }
+        });
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
+//		mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
+		mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_FASTEST);
 	}
 
 	@Override
@@ -65,6 +78,11 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 		super.onPause();
 		mSensorManager.unregisterListener(this);
 	}
+
+/*	protected  void onStop() {
+	    super.onStop();
+        mSensorManager.unregisterListener(this);
+    }*/
 
 	@Override
 	protected void onDestroy() {
@@ -95,32 +113,18 @@ public class SensorValuesActivity extends Activity implements SensorEventListene
 		if(event.values.length>6) {
 			mEventValue_6.setText(String.valueOf(event.values[6]));
 		}
-
-		Button btnRec = (Button)findViewById(R.id.measurerecords);
-		btnRec.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent intent = new Intent(SensorValuesActivity.this, SensorRecDisplay.class);
-				startActivity(intent);
-			}
-		});
 	}
 
 	@Override
 	public void onAccuracyChanged(Sensor sensor, int accuracy) {
 	}
 
-	Button.OnClickListener btnStart = new View.OnClickListener() {
-		@Override
-		public void onClick(View view) {
-			onResume();
-		}
-	};
+	Button.OnClickListener btnRec = new View.OnClickListener() {
 
-	Button.OnClickListener btnStop = new View.OnClickListener() {
 		@Override
 		public void onClick(View view) {
-			onPause();
+			Intent intent = new Intent(SensorValuesActivity.this, SensorRecDisplay.class);
+			startActivity(intent);
 		}
 	};
 }
